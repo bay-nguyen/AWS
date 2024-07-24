@@ -57,7 +57,7 @@
 ## ■mysql設定
 　- リポジトリをインストール
 	```
-　　　  	$ dnf -y localinstall  https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+	$ dnf -y localinstall  https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
 	```
 - GPGキーをインポート
 	```
@@ -80,7 +80,7 @@
 	```
 ## ■WordPress設定
 　- ディレクトリ移動
-　	```
+	```
 	$ cd /var/www/html
 	```
 - wordpressダウンロード
@@ -125,11 +125,11 @@
 	vi wp-config.php (DB名、パスワード等、暗号キー)
 	```
 ## ■httpd設定ファイル修正
--ディレクトリ移動
+- ディレクトリ移動
 	```
  	$ cd /etc/httpd/conf
 	```
-　= 対象ファイル（httpd.conf）以下のようにwordpressパスを修正
+　- 対象ファイル（httpd.conf）以下のようにwordpressパスを修正
 	```
 	$ /var/www/html　→　/var/www/html/wordpress
 	```
@@ -137,9 +137,9 @@
 	```
 	systemctl restart httpd
 	```
-１１）ブラウザで管理サーバにログインする
-　　- http://＜ipアドレス＞
-　　-　　wordpress情報登録
+- ブラウザで管理サーバにログインする
+	- http://＜ipアドレス＞
+	-　　wordpress情報登録
 
 
 
