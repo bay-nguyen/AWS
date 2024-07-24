@@ -96,6 +96,7 @@
  	$ rm -rf latest-ja.tar.gz
 	```
 ## ■DBログイン
+- DBにログインする
 	```
 	$ sudo mysql -u root -p
 	```
@@ -108,20 +109,30 @@
  	$ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Dsia_20240626#@';
 	```
 ## ■DB作成
+- DBのユーザ作成
 	```
-	CREATE USER 'ユーザ名' IDENTIFIED BY 'パスワード';
-	CREATE DATABASE `データベース名`;
+	$ CREATE USER 'ユーザ名' IDENTIFIED BY 'パスワード';
+	```
+- DB作成
+	```
+	$ CREATE DATABASE `データベース名`;
+	```
+- 権限付与
+	```
 	GRANT ALL PRIVILEGES ON `データベース名`.* TO "ユーザ名";
-	FLUSH PRIVILEGES;
+ 	FLUSH PRIVILEGES;
+	```
+- DB確認
+	```
 	SHOW DATABASES;
 	EXIT;
 	```
-
 ## ■Wordpressファイル修正
+- Wordpress設定ファイルを修正する
 	```
-	cd www/var/html/wordpress
-	cp wp-config-sample.php wp-config.php
-	vi wp-config.php (DB名、パスワード等、暗号キー)
+	$ cd www/var/html/wordpress
+	$ cp wp-config-sample.php wp-config.php
+	$ vi wp-config.php (DB名、パスワード等、暗号キー)
 	```
 ## ■httpd設定ファイル修正
 - ディレクトリ移動
