@@ -106,7 +106,7 @@
 	```
 - ログイン後パスワードを変更する
 	```
- 	$ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Dsia_20240626#@';
+ 	$ ALTER USER 'root' IDENTIFIED BY 'パスワード';
 	```
 ## ■DB作成
 - DBのユーザ作成
