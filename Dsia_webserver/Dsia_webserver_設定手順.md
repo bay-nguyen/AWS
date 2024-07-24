@@ -35,7 +35,9 @@
 	- 再度hostnameコマンドを実行し、ホスト名がcpweb01になっていることを確認
 ## ■httpd設定
 - インストールコマンドを実行
-　　　　　$ dnf install -y httpd
+　　　　```
+  $ dnf install -y httpd
+  ```
 - サービス起動
 　　　　　$ systemctl start httpd
 - サービス確認
