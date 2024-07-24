@@ -82,12 +82,13 @@
 　　　　ALTER USER 'root'@'localhost' IDENTIFIED BY 'Dsia_20240626#@';
 
 ## ■DB作成
-　　　　CREATE USER 'ユーザ名' IDENTIFIED BY 'パスワード';
+　　　　`CREATE USER 'ユーザ名' IDENTIFIED BY 'パスワード';
 　　　　CREATE DATABASE `データベース名`;
 　　　　GRANT ALL PRIVILEGES ON `データベース名`.* TO "ユーザ名";
 　　　　FLUSH PRIVILEGES;
 　　　　SHOW DATABASES;
 　　　　EXIT;
+  `
 
 ８）Wordpressファイル修正
 　　　　cd www/var/html/wordpress
