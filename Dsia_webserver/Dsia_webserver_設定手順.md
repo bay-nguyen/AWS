@@ -55,7 +55,7 @@
    	$ systemctl is-enabled httpd.service
    	```
 ## ■mysql設定
-　- リポジトリをインストール
+- リポジトリをインストール
 	```
 	$ dnf -y localinstall  https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
 	```
@@ -72,7 +72,7 @@
 	```
  	$ systemctl start mysqld
 	$ systemctl status mysqld
-　	```　
+	```　
 ## ■php設定
 - phpインストール
 	```
