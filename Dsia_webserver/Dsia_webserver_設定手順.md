@@ -139,7 +139,7 @@
 	```
  	$ cd /etc/httpd/conf
 	```
-　- 対象ファイル（httpd.conf）以下のようにwordpressパスを修正する
+- 対象ファイル（httpd.conf）以下のようにwordpressパスを修正する
 	```
 	$ /var/www/html　→　/var/www/html/wordpress
 	```
