@@ -15,7 +15,7 @@
 	
 - サーバ基本設定
 	- 日本時間設定
-	- date コマンド実行し、設定変更前にUTC時間であることを確認
+	- date コマンド実行し、設定変更前にUTC時間であることを確認する
 	-  以下のローカルタイムゾーンファイルを編集し、保存する。
    	```
    	$ vi /etc/sysconfig/clock
@@ -27,33 +27,33 @@
 
 
 - ホスト名設定
-	- hostname コマンドで設定変更前に”XXXX.ap-northeast-1.compute.internal”になっていることを確認
+	- hostname コマンドで設定変更前に”XXXX.ap-northeast-1.compute.internal”になっていることを確認する
 	- 以下のコマンドを実行する
    	```
    	$ sudo hostnamectl set-hostname cpweb01
    	```
-	- 再度hostnameコマンドを実行し、ホスト名がcpweb01になっていることを確認
+	- 再度hostnameコマンドを実行し、ホスト名がcpweb01になっていることを確認する
 ## ■httpd設定
 - インストールコマンドを実行
    	```
    	$ dnf install -y httpd
-
+	```
 - サービス起動
-     	```
+  	```
    	$ systemctl start httpd
-   	
+   	```
 - サービス確認
-     	```
+  	```
    	$ systemctl status httpd
-   	
+   	```
 - サービス自動起動設定
    	```
    	$ systemctl enable httpd.service
-   	　　
+   	```　
 - 設定後確認（enable)
    	```
    	$ systemctl is-enabled httpd.service
-   	
+   	```
 ## ■mysql設定
 　- リポジトリをインストール
 　　　  dnf -y localinstall  https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
