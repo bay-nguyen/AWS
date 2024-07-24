@@ -139,7 +139,7 @@
 	```
  	$ cd /etc/httpd/conf
 	```
-　- 対象ファイル（httpd.conf）以下のようにwordpressパスを修正
+　- 対象ファイル（httpd.conf）以下のようにwordpressパスを修正する
 	```
 	$ /var/www/html　→　/var/www/html/wordpress
 	```
@@ -153,7 +153,7 @@
 
 
 
-###その他（必要に応じて実施する）
+### その他（必要に応じて実施する）
 - プラグインを手動でアップロード時に以下の権限を付与する
 	```
 	chmod 0707 /wp-content/upgrade
