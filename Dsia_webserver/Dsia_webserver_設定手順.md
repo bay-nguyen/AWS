@@ -17,8 +17,9 @@
 	- 日本時間設定
 	- date コマンド実行し、設定変更前にUTC時間であることを確認
 	-  以下のローカルタイムゾーンファイルを編集し、保存する。
-   	``$ vi /etc/sysconfig/clock
-     	``
+   ```
+   $ vi /etc/sysconfig/clock
+   ```
 	- 変更内容：ZONE=	"Japan"
 　　　　　　　　			UTC="false"
 	- サーバ再起動	
