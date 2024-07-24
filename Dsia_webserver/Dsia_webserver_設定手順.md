@@ -35,18 +35,25 @@
 	- 再度hostnameコマンドを実行し、ホスト名がcpweb01になっていることを確認
 ## ■httpd設定
 - インストールコマンドを実行
-　　　　```
-  $ dnf install -y httpd
-  ```
+   	```
+   	$ dnf install -y httpd
+   	```
 - サービス起動
-　　　　　$ systemctl start httpd
+     	```
+   	$ systemctl start httpd
+   	```
 - サービス確認
-　　　　　$ systemctl status httpd
+     	```
+   	$ systemctl status httpd
+   	```
 - サービス自動起動設定
-　　　　　$ systemctl enable httpd.service
+   	```
+   	$ systemctl enable httpd.service
+   	```　　
 - 設定後確認（enable)
-　　　　　$ systemctl is-enabled httpd.service
-
+   	```
+   	$ systemctl is-enabled httpd.service
+   	```
 ## ■mysql設定
 　- リポジトリをインストール
 　　　  dnf -y localinstall  https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
