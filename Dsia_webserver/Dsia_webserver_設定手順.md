@@ -18,9 +18,9 @@
 	- date コマンド実行し、設定変更前にUTC時間であることを確認
 	-  以下のローカルタイムゾーンファイルを編集し、保存する。
 	```
-　　　　vi /etc/sysconfig/clock
-	- 変更内容：ZONE="Japan"
-　　　　　　　　UTC="false"
+　　　　	vi /etc/sysconfig/clock
+	- 変更内容：ZONE=	"Japan"
+　　　　　　　　			UTC="false"
 	- サーバ再起動	
 	- 再度dateコマンドを実行し、JST時間になっていることを確認する
 
