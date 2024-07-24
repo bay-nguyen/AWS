@@ -47,13 +47,13 @@
 	$ systemctl status httpd
 	```
 - サービス自動起動設定
-   	```
-   	$ systemctl enable httpd.service
-   	```
+	```
+	$ systemctl enable httpd.service
+	```
 - 設定後確認（enable)
-   	```
-   	$ systemctl is-enabled httpd.service
-   	```
+	```
+	$ systemctl is-enabled httpd.service
+	```
 ## ■mysql設定
 - リポジトリをインストール
 	```
