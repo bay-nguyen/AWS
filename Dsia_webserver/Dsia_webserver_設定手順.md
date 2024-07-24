@@ -119,13 +119,13 @@
 	```
 - 権限付与
 	```
-	GRANT ALL PRIVILEGES ON `データベース名`.* TO "ユーザ名";
- 	FLUSH PRIVILEGES;
+	$ GRANT ALL PRIVILEGES ON `データベース名`.* TO "ユーザ名";
+ 	$ FLUSH PRIVILEGES;
 	```
 - DB確認
 	```
-	SHOW DATABASES;
-	EXIT;
+	$ SHOW DATABASES;
+	$ EXIT;
 	```
 ## ■Wordpressファイル修正
 - Wordpress設定ファイルを修正する
@@ -145,7 +145,7 @@
 	```
 - httpd再起動
 	```
-	systemctl restart httpd
+	$ systemctl restart httpd
 	```
 - ブラウザで管理サーバにログインする
 	- http://＜ipアドレス＞
