@@ -72,7 +72,7 @@
 	```
  	$ systemctl start mysqld
 	$ systemctl status mysqld
-	```　
+	```
 ## ■php設定
 - phpインストール
 	```
@@ -95,10 +95,9 @@
 	```
  	$ rm -rf latest-ja.tar.gz
 	```
-
 ## ■DBログイン
 	```
- 	$ sudo mysql -u root -p
+	$ sudo mysql -u root -p
 	```
 - 初期パスワードは以下のファイルを開いて確認する。
 	```
