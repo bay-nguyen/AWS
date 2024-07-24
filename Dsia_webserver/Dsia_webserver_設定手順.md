@@ -65,98 +65,100 @@
  	```
 - パッケージをインストール
 	```
-	dnf install mysql-community-server mysql-community-client mysql-community-devel
-	systemctl is-enabled mysqld
+	$ dnf install mysql-community-server mysql-community-client mysql-community-devel
+	$ systemctl is-enabled mysqld
 	```
 - サービス起動
 	```
- 	systemctl start mysqld
-	systemctl status mysqld
+ 	$ systemctl start mysqld
+	$ systemctl status mysqld
 　	```　
 ## ■php設定
 - phpインストール
 	```
-	dnf -y install php-fpm php-mysqli php-json php php-devel
+	$ dnf -y install php-fpm php-mysqli php-json php php-devel
 	```
 ## ■WordPress設定
 　- ディレクトリ移動
 　	```
-	cd /var/www/html
+	$ cd /var/www/html
 	```
 - wordpressダウンロード
 	```
-	　wget https://ja.wordpress.org/latest-ja.tar.gz
+	$ wget https://ja.wordpress.org/latest-ja.tar.gz
 	```
 - ファイル展開
 	```
- 	tar -zxvf latest-ja.tar.gz
+ 	$ tar -zxvf latest-ja.tar.gz
 	```
 - 展開後、不要なファイルを削除する（ディスク確保のため）
 	```
- 	rm -rf latest-ja.tar.gz
+ 	$ rm -rf latest-ja.tar.gz
 	```
 
 ## ■DBログイン
-- sudo mysql -u root -p
-
+	```
+ 	$ sudo mysql -u root -p
+	```
 - 初期パスワードは以下のファイルを開いて確認する。
-　　　　cat /var/log/mysqld.log
-
+	```
+	$ cat /var/log/mysqld.log
+	```
 - ログイン後パスワードを変更する
-　　　　ALTER USER 'root'@'localhost' IDENTIFIED BY 'Dsia_20240626#@';
-
+	```
+ 	$ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Dsia_20240626#@';
+	```
 ## ■DB作成
-　　　　`CREATE USER 'ユーザ名' IDENTIFIED BY 'パスワード';
-　　　　CREATE DATABASE `データベース名`;
-　　　　GRANT ALL PRIVILEGES ON `データベース名`.* TO "ユーザ名";
-　　　　FLUSH PRIVILEGES;
-　　　　SHOW DATABASES;
-　　　　EXIT;
-  `
+	```
+	CREATE USER 'ユーザ名' IDENTIFIED BY 'パスワード';
+	CREATE DATABASE `データベース名`;
+	GRANT ALL PRIVILEGES ON `データベース名`.* TO "ユーザ名";
+	FLUSH PRIVILEGES;
+	SHOW DATABASES;
+	EXIT;
+	```
 
-８）Wordpressファイル修正
-　　　　cd www/var/html/wordpress
-　　　　cp wp-config-sample.php wp-config.php
-　　　　vi wp-config.php (DB名、パスワード等、暗号キー)
+## ■Wordpressファイル修正
+	```
+	cd www/var/html/wordpress
+	cp wp-config-sample.php wp-config.php
+	vi wp-config.php (DB名、パスワード等、暗号キー)
+	```
+## ■httpd設定ファイル修正
+-ディレクトリ移動
+	```
+ 	$ cd /etc/httpd/conf
+	```
+　= 対象ファイル（httpd.conf）以下のようにwordpressパスを修正
+	```
+	$ /var/www/html　→　/var/www/html/wordpress
+	```
+- httpd再起動
+	```
+	systemctl restart httpd
+	```
+１１）ブラウザで管理サーバにログインする
+　　- http://＜ipアドレス＞
+　　-　　wordpress情報登録
 
-９）httpd設定ファイル修正
-　　・ディレクトリ移動
-　　　　cd /etc/httpd/conf
-　　・対象ファイル（httpd.conf）以下のようにwordpressパスを修正
-　　　　/var/www/html　→　/var/www/html/wordpress
-
-１０）httpd再起動
-　　　　systemctl restart httpd
-
-１１）ブラウザでログインする
-　　　　http://＜ipアドレス＞
-　　　　wordpress情報登録
 
 
-
-※その他（必要に応じて実施する）
-
-①プラグインを手動でアップロード時に以下の権限を付与する
-chmod 0707 /wp-content/upgrade
-chmod 0707 /wp-content/themes
-chmod 0707 /wp-content/plugins
-
-②FTPリダイレクト無効化
-wp-config.phpにdefine('FS_METHOD', 'direct');
+###その他（必要に応じて実施する）
+- プラグインを手動でアップロード時に以下の権限を付与する
+	```
+	chmod 0707 /wp-content/upgrade
+	chmod 0707 /wp-content/themes
+	chmod 0707 /wp-content/plugins
+	```
+- FTPリダイレクト無効化
+	```
+	wp-config.phpにdefine('FS_METHOD', 'direct');
+	```
 
 ※以下の行より前に、追加
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
     define('ABSPATH', dirname(__FILE__) . '/');
-
-③サーバではpublic IPアドレスを利用する場合、サーバ停止→起動すると新しいIPが割り当てられるので、
-以前のIPアドレスが無効されてサーバにアクセスできない。
-そのため、データベースに登録したIPアドレスを更新する必要となる。
-・mysql -u root - p
-・パスワードを入力し、ログインする。
-・use bitnami_wordpress;
-・select * from wp_options where option_name = 'siteurl';
-・update wp_options set option_value = 'http://(変更後IPアドレス)' where option_name = 'siteurl';
 
 
 
