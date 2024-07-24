@@ -20,8 +20,8 @@
    	```
    	$ vi /etc/sysconfig/clock
    	```
-	- 変更内容：ZONE=	"Japan"
-　　　　　　　　			UTC="false"
+	- 変更内容：
+ 	   - ZONE="Japan"
 	- サーバ再起動	
 	- 再度dateコマンドを実行し、JST時間になっていることを確認する
 
@@ -29,9 +29,9 @@
 - ホスト名設定
 	- hostname コマンドで設定変更前に”XXXX.ap-northeast-1.compute.internal”になっていることを確認
 	- 以下のコマンドを実行する
-　　　　		```
-   		 sudo hostnamectl set-hostname cpweb01
-	- 再度hostnameコマンドを実行し、ホスト名がcpweb01になっていることを確認
+   	```
+    	$ sudo hostnamectl set-hostname cpweb01
+        - 再度hostnameコマンドを実行し、ホスト名がcpweb01になっていることを確認
 ## ■httpd設定
 - インストールコマンドを実行
   ```
