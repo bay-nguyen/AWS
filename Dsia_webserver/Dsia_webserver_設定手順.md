@@ -39,13 +39,13 @@
    	$ dnf install -y httpd
 	```
 - サービス起動
-  	```
+	```
 	$ systemctl start httpd
-   	```
+	```
 - サービス確認
-  	```
+	```
 	$ systemctl status httpd
-   	```
+	```
 - サービス自動起動設定
    	```
    	$ systemctl enable httpd.service
@@ -156,13 +156,13 @@
 ### その他（必要に応じて実施する）
 - プラグインを手動でアップロード時に以下の権限を付与する
 	```
-	chmod 0707 /wp-content/upgrade
-	chmod 0707 /wp-content/themes
-	chmod 0707 /wp-content/plugins
+	$ chmod 0707 /wp-content/upgrade
+	$ chmod 0707 /wp-content/themes
+	$ chmod 0707 /wp-content/plugins
 	```
 - FTPリダイレクト無効化
 	```
-	wp-config.phpにdefine('FS_METHOD', 'direct');
+	$ wp-config.phpにdefine('FS_METHOD', 'direct');
 	```
 
 ※以下の行より前に、追加
