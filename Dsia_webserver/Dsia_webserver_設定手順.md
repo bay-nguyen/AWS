@@ -32,61 +32,59 @@
 　　　　		```
    		 sudo hostnamectl set-hostname cpweb01
 	- 再度hostnameコマンドを実行し、ホスト名がcpweb01になっていることを確認
-
-２）httpd設定
-　・インストールコマンドを実行
+## ■httpd設定
+- インストールコマンドを実行
+  ```
 　　　　dnf install -y httpd
-　・サービス起動
+- サービス起動
 　　　　systemctl start httpd
-　・サービス確認
+- サービス確認
 　　　　systemctl status httpd
-　・サービス自動起動設定
+- サービス自動起動設定
 　　　　systemctl enable httpd.service
-　・設定後確認（enable)
+- 設定後確認（enable)
 　　　　systemctl is-enabled httpd.service
 
-３）mysql設定
-　・リポジトリをインストール
+## ■mysql設定
+　- リポジトリをインストール
 　　　  dnf -y localinstall  https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
-　・GPGキーをインポート
+- GPGキーをインポート
 　　　　systemctl start mysql
-　・パッケージをインストール
+- パッケージをインストール
 　　　　dnf install mysql-community-server mysql-community-client mysql-community-devel
 　　　　systemctl is-enabled mysqld
-　・サービス起動
+- サービス起動
 　　　　systemctl start mysqld
 　　　　systemctl status mysqld
 　　
-４）php設定
-　・phpインストール
+## ■php設定
+- phpインストール
 　　　  dnf -y install php-fpm php-mysqli php-json php php-devel
 
-
-５）WordPress設定
-　・ディレクトリ移動
+## ■WordPress設定
+　- ディレクトリ移動
 　　　　cd /var/www/html
-　・wordpressダウンロード
+- wordpressダウンロード
 　　　　wget https://ja.wordpress.org/latest-ja.tar.gz
-　・ファイル展開
+- ファイル展開
 　　　　tar -zxvf latest-ja.tar.gz
-　・展開後、不要なファイルを削除する（ディスク確保のため）
+- 展開後、不要なファイルを削除する（ディスク確保のため）
 　　　　rm -rf latest-ja.tar.gz
 
 
-６）DBログイン
-　　　　sudo mysql -u root -p
+## ■DBログイン
+- sudo mysql -u root -p
 
-　・初期パスワードは以下のファイルを開いて確認する。
+- 初期パスワードは以下のファイルを開いて確認する。
 　　　　cat /var/log/mysqld.log
 
-　・ログイン後パスワードを変更する
+- ログイン後パスワードを変更する
 　　　　ALTER USER 'root'@'localhost' IDENTIFIED BY 'Dsia_20240626#@';
 
-sudo
-７）DB作成
-　　　　CREATE USER 'bn_wordpress'@'localhost' IDENTIFIED BY 'Dsia_20240626#@';
-　　　　CREATE DATABASE `bitnami_wordpress`;
-　　　　GRANT ALL PRIVILEGES ON `bitnami_wordpress`.* TO "bn_wordpress"@"localhost";
+## ■DB作成
+　　　　CREATE USER 'ユーザ名' IDENTIFIED BY 'パスワード';
+　　　　CREATE DATABASE `データベース名`;
+　　　　GRANT ALL PRIVILEGES ON `データベース名`.* TO "ユーザ名";
 　　　　FLUSH PRIVILEGES;
 　　　　SHOW DATABASES;
 　　　　EXIT;
@@ -94,7 +92,7 @@ sudo
 ８）Wordpressファイル修正
 　　　　cd www/var/html/wordpress
 　　　　cp wp-config-sample.php wp-config.php
-　　　　vi wp-config.php (７番で設定したDB名、パスワード等、暗号キー)
+　　　　vi wp-config.php (DB名、パスワード等、暗号キー)
 
 ９）httpd設定ファイル修正
 　　・ディレクトリ移動
