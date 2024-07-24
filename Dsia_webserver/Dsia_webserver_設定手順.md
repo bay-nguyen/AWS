@@ -40,16 +40,16 @@
 	```
 - サービス起動
   	```
-   	$ systemctl start httpd
+	$ systemctl start httpd
    	```
 - サービス確認
   	```
-   	$ systemctl status httpd
+	$ systemctl status httpd
    	```
 - サービス自動起動設定
    	```
    	$ systemctl enable httpd.service
-   	```　
+   	```
 - 設定後確認（enable)
    	```
    	$ systemctl is-enabled httpd.service
