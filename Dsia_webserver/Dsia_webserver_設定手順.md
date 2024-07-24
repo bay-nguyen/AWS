@@ -56,30 +56,45 @@
    	```
 ## ■mysql設定
 　- リポジトリをインストール
-　　　  dnf -y localinstall  https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+	```
+　　　  	$ dnf -y localinstall  https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+	```
 - GPGキーをインポート
-　　　　systemctl start mysql
+	```
+	$ systemctl start mysql
+ 	```
 - パッケージをインストール
-　　　　dnf install mysql-community-server mysql-community-client mysql-community-devel
-　　　　systemctl is-enabled mysqld
+	```
+	dnf install mysql-community-server mysql-community-client mysql-community-devel
+	systemctl is-enabled mysqld
+	```
 - サービス起動
-　　　　systemctl start mysqld
-　　　　systemctl status mysqld
-　　
+	```
+ 	systemctl start mysqld
+	systemctl status mysqld
+　	```　
 ## ■php設定
 - phpインストール
-　　　  dnf -y install php-fpm php-mysqli php-json php php-devel
-
+	```
+	dnf -y install php-fpm php-mysqli php-json php php-devel
+	```
 ## ■WordPress設定
 　- ディレクトリ移動
-　　　　cd /var/www/html
+　	```
+	cd /var/www/html
+	```
 - wordpressダウンロード
-　　　　wget https://ja.wordpress.org/latest-ja.tar.gz
+	```
+	　wget https://ja.wordpress.org/latest-ja.tar.gz
+	```
 - ファイル展開
-　　　　tar -zxvf latest-ja.tar.gz
+	```
+ 	tar -zxvf latest-ja.tar.gz
+	```
 - 展開後、不要なファイルを削除する（ディスク確保のため）
-　　　　rm -rf latest-ja.tar.gz
-
+	```
+ 	rm -rf latest-ja.tar.gz
+	```
 
 ## ■DBログイン
 - sudo mysql -u root -p
