@@ -1,5 +1,5 @@
 # 社内ウェブサーバ構築
-### 参考したサイト（https://qiita.com/3y9Mz/items/dc3b598243ae9ce04a7c）
+### 参考したサイト:https://qiita.com/3y9Mz/items/dc3b598243ae9ce04a7c
 
 
 ## ■EC2構築手順
