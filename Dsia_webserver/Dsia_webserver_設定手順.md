@@ -18,11 +18,8 @@
 	- date コマンド実行し、設定変更前にUTC時間であることを確認する
 	-  以下のローカルタイムゾーンファイルを編集し、保存する。
    	```
-   	$ vi /etc/sysconfig/clock
+   	$ sudo timedatectl set-timezone Asia/Tokyo
    	```
-	- 変更内容：
- 	   - ZONE="Japan"
-	- サーバ再起動	
 	- 再度dateコマンドを実行し、JST時間になっていることを確認する
 
 
